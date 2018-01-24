@@ -64,20 +64,19 @@ public class NotesFragment extends Fragment {
             recyclerView.setAdapter(mAdapter);
         }
 
-        // EXO 3 - MODIFICATION - Questions 3 et 4
-        // Impossible de passer par android:onClick dans le XML (il faudrait que ce soit dans l'activité, mais elle n'a pas encore accès au fragment à ce stade de la feuille.
-        // On définit donc les OnClickListener
+        //  MODIFICATION
+        // Impossible de passer par android:onClick dans le XML ici sans passer par le Fragment
         Button creer = (Button)view.findViewById(R.id.boutonCreer);
         Button suppr = (Button)view.findViewById(R.id.boutonsuppr);
         creer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // FINITIONS question 2
+                //
                 Intent editIntent = new Intent(NotesFragment.this.getActivity(),NewNoteActivity.class);
                 startActivityForResult(editIntent,42);
                 /////////
 
-                //addNote("Nouvelle note","Ci est la nouvelle note fraîchement créée par l'appui sur le bouton de test. ");
+                //addNote("Nouvelle note","C'est la nouvelle note fraîchement créée par l'appui sur le bouton de test. ");
             }
         });
         suppr.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +97,7 @@ public class NotesFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // FINITIONS question 2
+        // FINITIONS
         if (requestCode == 42)
             if (resultCode == Activity.RESULT_OK)
                 addNote(data.getStringExtra("titre"),data.getStringExtra("contenu"));
@@ -136,7 +135,7 @@ public class NotesFragment extends Fragment {
     }
 
 
-    // EXO 3 - MODIFICATION - Question 1
+    //  MODIFICATION
     public void addNote(String titre,String contenu)
     {
         mNotes.ajouteNote(titre,contenu);
@@ -144,7 +143,7 @@ public class NotesFragment extends Fragment {
         mAdapter.notifyItemInserted(mNotes.size()-1);
 
     }
-    // EXO 3 - MODIFICATION - Question 2
+    // MODIFICATION
     public void deleteNote(String titre)
     {
         int position = mNotes.deleteNote(titre);

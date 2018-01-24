@@ -1,11 +1,11 @@
 package com.example.jamian.first;
 
 /**
- * Created by jamian on 21/11/16.
+ *  Simple Note with title and Content
  */
 public class Note {
 
-    //EXO 3 Question 2
+
     private String mTitre;
     private String mContenu;
 

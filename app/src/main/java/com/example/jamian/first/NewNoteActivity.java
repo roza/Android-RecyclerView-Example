@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-// EXERCICE 3 - FINITIONS - question 1
+// Create a new note in a new Activity
 public class NewNoteActivity extends AppCompatActivity {
 
     EditText mTitreText;

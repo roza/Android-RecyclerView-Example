@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements NotesFragment.OnL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // EXO 3 COMM ACTIVITY/FRAGMENT question 1
+        // FragmentManager to retrieve a specific Fragment
         FragmentManager frm = getSupportFragmentManager();
         noteDetailFragment = (NoteDetailFragment) frm.findFragmentById(R.id.mainNoteDetailFrag);
         notesFragment=(NotesFragment)frm.findFragmentById(R.id.mainNoteFrag);
@@ -27,9 +27,10 @@ public class MainActivity extends AppCompatActivity implements NotesFragment.OnL
 
     @Override
     public void onListFragmentInteraction(Note item) {
+        // onListFragmentInteraction calls fragment update
         Log.d("NoteCallback",item.getTitre()+" - "+item.getContenu());
         notesFragment.setNote(item);
-        // EXO 3 COMM ACTIVITY/FRAGMENT question 2
+
         noteDetailFragment.update(item);
 
     }
